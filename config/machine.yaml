@@ -1,0 +1,9 @@
+# PLACEHOLDER values: replace after mechanical measurements are done.
+axes:
+  y: {speed_mm_s: 20, min_mm: 0, max_mm: 250, steps_per_mm: null}
+  a: {speed_deg_s: 90, steps_per_deg: null}
+scan:
+  y_start_mm: 10
+  y_step_mm: 5
+  y_positions: 3
+  angles_per_rev: 8
