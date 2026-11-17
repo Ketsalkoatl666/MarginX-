@@ -1,0 +1,56 @@
+MARGINX - QUICK START GUIDE
+===========================
+
+! IMPORTANT - POWER AND SHUTDOWN
+! The physical POWER button switches MOTOR POWER only.
+! It does NOT turn off the Raspberry Pi.
+! To shut down the Pi: stop movement -> EXIT MarginX ->
+! use the Raspberry Pi desktop Shutdown menu -> wait until shutdown
+! finishes -> only then unplug Pi power if needed.
+! Do not cut Pi power while running: this can corrupt the microSD card.
+
+1. CONNECT TO WI-FI
+------------------
+- On the Pi desktop, select the Wi-Fi icon.
+- Choose a Wi-Fi network and enter the password.
+- Open Chromium to confirm internet access.
+- If a phone hotspot will not connect, try another Wi-Fi network.
+
+2. GET NEW CODE FROM GITHUB
+---------------------------
+For developers:
+- Open Chromium -> github.com -> sign in to your own account.
+- Open the shared MarginX repository and edit/commit approved code.
+
+To download the latest code on the Pi:
+- Stop the motors and EXIT MarginX first.
+- Open Terminal and run:
+    cd ~/marginx
+    ./update_marginx.sh
+    tail -n 10 update.log
+- Restart MarginX after updating.
+- Browser login does NOT automatically authenticate Terminal Git.
+  If an update fails, ask the project owner; do not force-reset Git.
+- Boot-time updates happen only if the updater was configured at startup.
+
+3. USE MARGINX
+--------------
+- Check that the emergency stop works and the stage has enough travel.
+- Turn on the Pi and motor power using their separate supplies.
+- If the GUI did not open, run:
+    cd ~/marginx
+    .venv/bin/python3 tools/marginxGUI.py
+- Login (default demo credentials: admin / 000000).
+- Use LEFT / RIGHT 1 mm or 5 mm to position the stage.
+  Test with 1 mm first. No zero calibration is required.
+- Tap CONTINUE, insert the cup, and close the cover.
+- Check that Cup and Cover show the correct stable states.
+- Tap START SCANNING. The system scans three positions and,
+  on successful completion, returns to the starting location.
+- Keep hands clear of moving parts. Do not scan if travel is uncertain.
+- To finish: EXIT the app, then use the desktop Shutdown menu.
+
+NEED HELP?
+----------
+If Wi-Fi, GitHub updates, switches, or motors fail, stop scanning and
+contact the MarginX project owner. Do not bypass safety switches.
