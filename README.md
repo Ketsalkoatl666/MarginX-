@@ -63,7 +63,7 @@ The following are **BCM GPIO numbers**, not physical header pin numbers. Verify 
 | Shift motor DIR | GPIO27 | Pin 13 | DM430 shift driver's DIR input (+, per the prototype wiring) |
 | Rotation motor STEP | GPIO23 | Pin 16 | DM430 rotation driver's STEP/PUL input (+, per the prototype wiring) |
 | Rotation motor DIR | GPIO24 | Pin 18 | DM430 rotation driver's DIR input (+, per the prototype wiring) |
-| Cup microswitch NO | GPIO5 | Pin 29 | Cup-sense signal; normally-open contact |
+| Cup microswitch NO | GPIO16 | Pin 36 | Cup-sense signal; normally-open contact |
 | Cover microswitch NO | GPIO6 | Pin 31 | Cover-sense signal; normally-open contact |
 | Cup/cover COM | GND | Any appropriate Pi GND | Shared switch reference |
 | Scan indicator output | GPIO26 | Pin 37 | Logic output for scan LED / **appropriate LED driver** |
@@ -264,7 +264,6 @@ Git may report `Tracked local changes present; skipping.` This is intentional. D
 |---|---|
 | GUI will not start | Run it from a terminal; inspect Python traceback and use `py_compile` to detect syntax errors |
 | `GPIO busy` | Close any other MarginX, switch-test, or GPIO process before starting the GUI; do not force GPIO ownership while motors are active |
-| Cup stays Inserted / flickers | With MarginX fully exited, independently test GPIO5. Confirm COM/NO wiring, mechanical actuation and stable `True`/`False` readings; review GPIO backend. Do not disable the switch to make a scan run |
 | Cover status incorrect | Independently test GPIO6, cover switch actuation and GND |
 | LEFT moves RIGHT | Inspect shift-motor installation and the `SHIFT_DIRECTION_REVERSED` setting in `marginx_control.py`; verify both manual moves and scan/return before use |
 | Scan stops halfway | Check sensor states, whether the GUI requested abort, and motor/driver conditions. After abort, treat physical position as uncertain |
